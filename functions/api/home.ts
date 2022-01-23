@@ -10,6 +10,7 @@ export async function onRequestGet(context: EventContext<EnvironmentVariables, a
     next,
     data,
   } = context;
-
-  return new Response("Hello, world!");
+  const res = new Response(JSON.stringify({ text: "Hello, world!" }));
+  res.headers.set("Content-type", "application/json");
+  return res;
 }
